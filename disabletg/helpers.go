@@ -10,7 +10,7 @@ import (
 	"github.com/PaulSonOfLars/gotgbot/v2/ext/handlers"
 )
 
-func NewDisabler(dispatcher *ext.Dispatcher, config *DisablerConfig) {
+func NewDisabler(dispatcher *ext.Dispatcher, config *DisablerConfig) *Disabler {
 	d := new(Disabler)
 	if config == nil {
 		config = GetDefaultConfig()
@@ -31,6 +31,7 @@ func NewDisabler(dispatcher *ext.Dispatcher, config *DisablerConfig) {
 	}
 
 	dispatcher.AddHandlerToGroup(d.msgHandler, d.config.HandlerGroup)
+	return d
 }
 
 func GetDefaultConfig() *DisablerConfig {
