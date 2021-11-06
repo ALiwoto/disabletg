@@ -14,6 +14,22 @@ import (
 )
 
 func (d *Disabler) disablerFilter(msg *gotgbot.Message) bool {
+	var cmd string
+	if msg.Text != "" {
+		cmd = strings.Fields(msg.Text)[0]
+	} else if msg.Caption != "" && d.ConsiderCaption() {
+		cmd = strings.Fields(msg.Caption)[0]
+	}
+	if len(cmd) == 0 {
+		return false
+	}
+
+	pre := ([]rune(cmd))[0]
+	for _, current := range d.GetTriggers() {
+		if pre == current {
+			return true
+		}
+	}
 	return true
 }
 
@@ -41,8 +57,12 @@ func (d *Disabler) disablerHandler(b *gotgbot.Bot, ctx *ext.Context) error {
 
 	if msg.Text != "" {
 		cmd = strings.Fields(msg.Text)[0]
-	} else if msg.Caption != "" {
+	} else if msg.Caption != "" && d.ConsiderCaption() {
 		cmd = strings.Fields(msg.Caption)[0]
+	}
+
+	if len(cmd) == 0 {
+		return ext.ContinueGroups
 	}
 
 	cmd = strongStringGo.Split(cmd, " ", "@", "/")[0]

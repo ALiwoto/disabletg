@@ -34,5 +34,7 @@ func NewDisabler(dispatcher *ext.Dispatcher, config *DisablerConfig) {
 }
 
 func GetDefaultConfig() *DisablerConfig {
-	return &DisablerConfig{} //TODO: add a default config.
+	return &DisablerConfig{
+		Triggers: []rune{'/', '!'},
+	} //TODO: add a default config.
 }

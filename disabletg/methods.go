@@ -82,6 +82,13 @@ func (d *Disabler) IsDisabled(chatId int64, command string) bool {
 	return d.IsInternalDisabled(chatId, command)
 }
 
+func (d *Disabler) GetTriggers() []rune {
+	if d.config != nil {
+		return d.config.Triggers
+	}
+	return []rune{'/', '!'}
+}
+
 func (d *Disabler) IsGlobalDisabled(command string) bool {
 	if d.config.Core != nil {
 		return d.config.Core.IsGlobalDisabled(command)

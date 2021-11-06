@@ -17,6 +17,7 @@ type DisablerConfig struct {
 	Channels          bool
 	UseInternal       bool
 	Caption           bool
+	Triggers          []rune
 	HandlerGroup      int
 	GlobalIgnoreChats []int64
 	Core              DisableCore
