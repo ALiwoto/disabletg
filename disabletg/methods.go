@@ -106,3 +106,10 @@ func (d *Disabler) IsGlobalIgnored(chatId int64) bool {
 	}
 	return false
 }
+
+func (d *Disabler) GetGlobalIgnoredChats() []int64 {
+	if d.config.Core != nil {
+		return d.config.GlobalIgnoreChats
+	}
+	return nil
+}

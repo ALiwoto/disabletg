@@ -65,7 +65,7 @@ func (d *Disabler) disablerHandler(b *gotgbot.Bot, ctx *ext.Context) error {
 		return ext.ContinueGroups
 	}
 
-	cmd = strongStringGo.Split(cmd, " ", "@", "/")[0]
+	cmd = strongStringGo.Split(cmd, " ", "@", "/", "-")[0]
 
 	if d.IsDisabled(msg.Chat.Id, cmd) {
 		return ext.EndGroups
