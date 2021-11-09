@@ -9,5 +9,5 @@ go 1.15
 
 require (
 	github.com/ALiwoto/StrongStringGo v1.0.5
-	github.com/PaulSonOfLars/gotgbot/v2 v2.0.0-rc.2
+	github.com/PaulSonOfLars/gotgbot/v2 v2.0.0-rc.1
 )
