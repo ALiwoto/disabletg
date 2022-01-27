@@ -5,9 +5,9 @@
 
 module github.com/ALiwoto/disabletg
 
-go 1.15
+go 1.17
 
 require (
-	github.com/ALiwoto/StrongStringGo v1.0.5
-	github.com/PaulSonOfLars/gotgbot/v2 v2.0.0-rc.1
+	github.com/ALiwoto/StrongStringGo v1.0.9
+	github.com/PaulSonOfLars/gotgbot/v2 v2.0.0-rc.5
 )
