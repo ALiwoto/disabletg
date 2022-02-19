@@ -1,5 +1,5 @@
 // disabletg library Project
-// Copyright (C) 2021 ALiwoto <aminnimaj@gmail.com>
+// Copyright (C) 2021-2022 ALiwoto <aminnimaj@gmail.com>
 // This file is subject to the terms and conditions defined in
 // file 'LICENSE', which is part of the source code.
 
@@ -55,17 +55,24 @@ func (d *Disabler) disablerHandler(b *gotgbot.Bot, ctx *ext.Context) error {
 		return ext.ContinueGroups
 	}
 
+	var tmpArray []string
 	if msg.Text != "" {
-		cmd = strings.Fields(msg.Text)[0]
+		tmpArray = strings.Fields(msg.Text)
 	} else if msg.Caption != "" && d.ConsiderCaption() {
-		cmd = strings.Fields(msg.Caption)[0]
+		tmpArray = strings.Fields(msg.Caption)
 	}
 
-	if len(cmd) == 0 {
+	if len(tmpArray) < 1 {
 		return ext.ContinueGroups
 	}
 
-	tmpArray := strongStringGo.Split(cmd, " ", "@", "/", "-")
+	cmd = tmpArray[0]
+
+	if len(cmd) < 1 {
+		return ext.ContinueGroups
+	}
+
+	tmpArray = strongStringGo.Split(cmd, " ", "@", "/", "-")
 	if len(tmpArray) < 1 {
 		return ext.ContinueGroups
 	}
