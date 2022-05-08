@@ -7,7 +7,7 @@ module github.com/ALiwoto/disabletg
 
 go 1.18
 
-require github.com/PaulSonOfLars/gotgbot/v2 v2.0.0-rc.6
+require github.com/PaulSonOfLars/gotgbot/v2 v2.0.0-rc.7
 
 require github.com/AnimeKaizoku/ssg v1.1.8
 
