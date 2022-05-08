@@ -1,5 +1,5 @@
 // disabletg library Project
-// Copyright (C) 2021-2022 ALiwoto <aminnimaj@gmail.com>
+// Copyright (C) 2021-2022 ALiwoto <woto@kaizoku.cyou>
 // This file is subject to the terms and conditions defined in
 // file 'LICENSE', which is part of the source code.
 
@@ -8,7 +8,7 @@ package disabletg
 import (
 	"strings"
 
-	"github.com/ALiwoto/StrongStringGo/strongStringGo"
+	"github.com/AnimeKaizoku/ssg/ssg"
 	"github.com/PaulSonOfLars/gotgbot/v2"
 	"github.com/PaulSonOfLars/gotgbot/v2/ext"
 )
@@ -72,7 +72,7 @@ func (d *Disabler) disablerHandler(b *gotgbot.Bot, ctx *ext.Context) error {
 		return ext.ContinueGroups
 	}
 
-	tmpArray = strongStringGo.Split(cmd, " ", "@", "/", "-")
+	tmpArray = ssg.Split(cmd, " ", "@", "/", "-")
 	if len(tmpArray) < 1 {
 		return ext.ContinueGroups
 	}
